@@ -1,16 +1,9 @@
-# crud_form
+# Explorasi Framework Flutter dengan case CRUD ruangan
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Kelompok 1
+Anggota:
+1. Ksatria Akbar Putra Pratama	24060120130119
+2. Mohamad Fahrul Islami		24060120130074
+3. Taufik Akbar			24060120140041
+4. Dewangga Azharani Zahar	24060120130068
+5. Nawfal Fudhayl Warsito		24060120140092
