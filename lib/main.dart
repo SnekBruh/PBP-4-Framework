@@ -11,6 +11,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key key}) : super(key: key);
 
+  //Untuk build widget yang bagian atas
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,16 +34,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //membuat controller
   TextEditingController kodeController = TextEditingController();
   TextEditingController namaruanganController = TextEditingController();
   TextEditingController kapasitasController = TextEditingController();
 
+  //Init state
   @override
   void initState() {
     loadRuang(); //refresh
     super.initState();
   }
 
+  //Refresh data jika dimasukkan
   List<Map<String, dynamic>> ruangan = [];
   void loadRuang() async {
     final data = await DbInstance.getRuangan();
@@ -51,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  //Build widget untuk datanya
   @override
   Widget build(BuildContext context) {
     print(ruangan);
@@ -90,12 +95,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  //Fungsi create
   Future<void> addRuangan() async {
     await DbInstance.addRuangan(kodeController.text, namaruanganController.text,
         kapasitasController.text);
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Data Berhasil ditambahkan'))); //menampilkan pesan
     loadRuang();
   }
 
+  //Fungsi edit
   Future<void> editRuangan(int id) async {
     await DbInstance.editRuangan(id, kodeController.text,
         namaruanganController.text, kapasitasController.text);
@@ -104,13 +113,15 @@ class _MyHomePageState extends State<MyHomePage> {
     loadRuang();
   }
 
+  //Fungsi delete
   void deleteRuangan(int id) async {
     await DbInstance.deleteRuangan(id);
     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Catatan berhasil dihapus'))); //menampilkan pesan
+        content: Text('Data berhasil dihapus'))); //menampilkan pesan
     loadRuang();
   }
 
+  //Build form isi data
   void ruangForm(int id) async {
     if (id != null) {
       final dataRuangan = ruangan.firstWhere((element) => element['id'] == id);
